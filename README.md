@@ -17,20 +17,27 @@ https://swapi.dev
 * Styling enligt mock, flasha med lite transitions
 
 ## Instruktioner
-1. En i gruppen forkar det här repot. 
+1. En i gruppen forkar det här repot. Lägg till den andra medlemmen på repot.
 1. Gör en komponentanalys, dokumentera detta
 1. Gör en planering, vad och vilken ordning ska allt göras, dokumentera detta
 1. Bestäm när, var och hur ni träffas
-1. Start developing!
+1. Start developing! Gör commits ofta och glöm inte att pusha till repot.
 
 ## Tekniker
 * DOM-Interaktion och Manipulation
 * Events
-* Asynkron programmering
+* Asynkron programmering och Promises
 * Interaktion med webbtjänst
 * De fem grundpelarna
 
 ## Bedömning
 * Kodstruktur och kodkvalité
 * Buggmängd
-* Hur 
+* Hur väl ni visar förståelse för teknikerna
+
+## Level Up - VG-kravet
+
+### Ytterligare specifikation
+Boxxen till höger ska ha 4 olika lägen som man kan växla mellan med tabbar(se mock).
+
+Informationen i varje box behöver hämtas från olika Endpoints från swapi.dev.
