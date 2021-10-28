@@ -1,0 +1,116 @@
+html, body{
+    height: 100%;
+    background-color: #535556;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.headerpicture{
+    max-width: 100%;
+    background-image: url(/assets/header-background.png);
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+main{
+    height: 1000px;
+    
+}
+
+h1{
+    color: #FFD600;
+    font-size: 60px;
+    font-weight: 100;
+    letter-spacing: 10px;
+    word-wrap: break-word;
+    word-break: normal;
+    width: 500px;
+    padding-top: 120px;
+    margin-left: 50px;
+}
+
+.character-title{
+    font-weight: bold;
+    color: #FFD600;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-align: center;
+    text-justify: auto;
+    padding: 25px 0;
+    background-color: #404040;
+    border-radius: 5px 5px 0px 0;
+}
+
+a.dark-color{
+    color: #444444;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: 100; 
+    background-color: #E1DEDE;
+}
+
+a.light-color{
+    color: whitesmoke;
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: 100;
+    background-color: grey;
+}
+   
+.character-card{
+    background-color: #C4C4C4;
+    width: 500px;
+    height: 700px;
+    border-radius: 10px 10px 0px 0;
+    transform: translatey(-05%) translatex(80%);
+    
+}
+
+a:link{
+    
+    color: white;
+    padding: 14px 25px;
+    text-align: left;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul{
+      list-style-type: none; 
+  }
+  
+  .character-info{
+    background-color: grey;
+    width: 500px;
+    height: 700px;
+    border-radius: 10px 10px 0px 0;
+    transform: translatey(-105%) translatex(200%); 
+  }
+
+  .info-title{
+    font-weight: bold;
+    color: #FFD600;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-align: center;
+    text-justify: auto;
+    padding: 25px 0;
+    background-color: #748687;
+    border-radius: 5px 5px 0px 0;
+}
+.info-planet{
+
+    background-color:#C4C4C4;
+    height: 40%;
+}
+
+
+  
