@@ -1,4 +1,5 @@
 html, body{
+    width: 100%;
     height: 100%;
     background-color: #535556;
     font-family: 'Ropa Sans', sans-serif;
@@ -16,12 +17,10 @@ html, body{
     height: 400px;
     background-repeat: no-repeat;
     background-size: cover;
-    
 }
 
 main{
     height: 1000px;
-    
 }
 
 h1{
@@ -69,12 +68,10 @@ a.light-color{
     width: 500px;
     height: 700px;
     border-radius: 10px 10px 0px 0;
-    transform: translatey(-05%) translatex(80%);
-    
+    transform: translatey(-05%) translatex(80%);  
 }
 
 a:link{
-    
     color: white;
     padding: 14px 25px;
     text-align: left;
@@ -107,7 +104,6 @@ a:link{
     border-radius: 5px 5px 0px 0;
 }
 .info-planet{
-
     background-color:#C4C4C4;
     height: 40%;
 }
