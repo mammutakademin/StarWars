@@ -47,17 +47,16 @@ h1{
     border-radius: 5px 5px 0px 0;
 }
 
-a.dark-color{
+li:nth-child(odd) a{
 /* a.dark-color{ */
     color: #444444;
     font-size: 25px;
     letter-spacing: 1px;
     font-weight: 100; 
     background-color: #E1DEDE;
-    
 }
 
-a.light-color{
+ul > li:nth-child(2n+2) a{
 /* a.light-color{ */
     color: whitesmoke;
     font-size: 25px;
@@ -75,7 +74,6 @@ a.light-color{
 }
 
 a:link{
-    /* a:link */
     color: white;
     padding: 14px 25px;
     text-align: left;
@@ -84,19 +82,19 @@ a:link{
     flex-direction: column;
   }
 
-  ul{
-      list-style-type: none; 
+ul{
+    list-style-type: none;
   }
   
-  .character-info{
+.character-info{
     background-color: grey;
     width: 500px;
     height: 700px;
     border-radius: 10px 10px 0px 0;
     transform: translatey(-105%) translatex(200%); 
-  }
+}
 
-  .info-title{
+.info-title{
     font-weight: bold;
     color: #FFD600;
     font-size: 30px;
@@ -107,6 +105,7 @@ a:link{
     background-color: #748687;
     border-radius: 5px 5px 0px 0;
 }
+
 .info-planet{
     background-color:#C4C4C4;
     height: 40%;
