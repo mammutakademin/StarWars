@@ -4,11 +4,11 @@ fetch('https://swapi.dev/api/people', {mode:'cors'})
         return response.json(); 
     })
     .then(function(json) {
-        let people = json.results; 
+        let people = json.results;
         for(p of people) {
             let listItem = document.createElement('li');
-            listItem.className = "starwars-character"
-            listItem.innerHTML = '<a>' + p.name + '</a>';
+            listItem.className = "character-names"
+            listItem.innerHTML = '<li>' + '<a href="#">' + p.name + '</a>' + '</li>';
             starWarsCharacterList.appendChild(listItem);  
         }
 });
