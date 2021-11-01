@@ -47,7 +47,8 @@ h1{
     border-radius: 5px 5px 0px 0;
 }
 
-a.dark-color{
+.starwars-character{
+/* a.dark-color{ */
     color: #444444;
     font-size: 25px;
     letter-spacing: 1px;
