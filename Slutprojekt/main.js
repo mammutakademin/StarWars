@@ -12,3 +12,7 @@ fetch('https://swapi.dev/api/people', {mode:'cors'})
             starWarsCharacterList.appendChild(listItem);  
         }
 });
+
+function eventListener(){
+    document.querySelectorAll("li").forEach((item) => item.addEventListener("click", renderInfo))
+};

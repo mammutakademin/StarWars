@@ -20,7 +20,12 @@ html, body{
 }
 
 main{
-    height: 1000px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    
 }
 
 h1{
@@ -48,7 +53,6 @@ h1{
 }
 
 li:nth-child(odd) a{
-/* a.dark-color{ */
     color: #444444;
     font-size: 25px;
     letter-spacing: 1px;
@@ -57,7 +61,6 @@ li:nth-child(odd) a{
 }
 
 ul > li:nth-child(2n+2) a{
-/* a.light-color{ */
     color: whitesmoke;
     font-size: 25px;
     letter-spacing: 1px;
@@ -70,7 +73,7 @@ ul > li:nth-child(2n+2) a{
     width: 500px;
     height: 700px;
     border-radius: 10px 10px 0px 0;
-    transform: translatey(-05%) translatex(80%);  
+    transform: translatey(-35px) ;  
 }
 
 a:link{
@@ -91,7 +94,7 @@ ul{
     width: 500px;
     height: 700px;
     border-radius: 10px 10px 0px 0;
-    transform: translatey(-105%) translatex(200%); 
+    transform: translatey(-35px); 
 }
 
 .info-title{
@@ -111,5 +114,50 @@ ul{
     height: 40%;
 }
 
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 23px solid transparent;
+    border-right: 23px solid #000;
+}
 
-  
+.inner-triangle-left {
+    position: relative;
+    top: -20px;
+    left: 2px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #C4C4C4;
+}
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 23px solid transparent;
+    border-bottom: 23px solid transparent;
+    border-left: 23px solid #000;
+}
+
+.inner-triangle-right {
+    position: relative;
+    top: -20px;
+    right: 22px;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #C4C4C4;
+}
+.navigation-bar{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-evenly;
+    
+    
+}
+
