@@ -1,4 +1,9 @@
-const starWarsCharacterList = document.querySelector('ul');
+const scrollBack = document.querySelector(".scroll-back")
+const scrollForward = document.querySelector(".scroll-forward")
+const starWarsCharacterList = document.querySelector("ul");
+const pageNumber = 1;
+
+window.addEventListener("load", displayFirstPage);
 fetch('https://swapi.dev/api/people', {mode:'cors'}) 
     .then(function(response) {   
         return response.json(); 
@@ -13,6 +18,6 @@ fetch('https://swapi.dev/api/people', {mode:'cors'})
         }
 });
 
-function eventListener(){
+/* function eventListener(){
     document.querySelectorAll("li").forEach((item) => item.addEventListener("click", renderInfo))
-};
+}; */
