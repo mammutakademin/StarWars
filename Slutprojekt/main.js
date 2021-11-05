@@ -4,9 +4,14 @@ const starWarsCharacterList = document.querySelector("ul");
 const additionalInfoDetails = document.querySelector(".additional-info-details");
 const pageNumber = 1;
 const api_url = "https://swapi.dev/api/people";
-
-const additionalinfo = document.querySelector("additional-info-details")
+const additionalinfo = document.querySelector(".more-info")
 const planetList = document.querySelector(".more-info");
+const planetbtn = document.querySelector(".planet-btn")
+const speciesbtn = document.querySelector(".species-btn")
+const vehiclesbtn = document.querySelector(".vehicles-btn")
+const starshipsbtn = document.querySelector(".starship-btn")
+
+
 
 
 //Gets the characters
@@ -26,8 +31,9 @@ async function getapi(url){
             listItem.innerText = p.name
             starWarsCharacterList.appendChild(listItem);  
             listItem.addEventListener("click", function(){
-                peopledetails(p),
+                peopledetails(p)
                 getplanet(p)
+                getclick(p)
             })           
         }
     });
@@ -52,21 +58,29 @@ async function getplanet(p){
     const response1 = await fetch(p.homeworld)
     const homeplanet = await response1.json()
     console.log(homeplanet)
+
+     
+    additionalinfo.innerHTML= 
+    `<h3>${homeplanet.name}</h3>
+     <p>Rotation period: ${homeplanet.rotation_period}</p>
+     <p>Orbital period: ${homeplanet.orbital_period}</p>
+     <p>Diameter: ${homeplanet.diameter}</p>
+     <p>Climate: ${homeplanet.climate}</p>
+     <p>Gravity: ${homeplanet.gravity}</p>
+     <p>Terrain: ${homeplanet.terrain}</p>
+     <p>Surface water: ${homeplanet.surface_water}</p>
+     <p>Population: ${homeplanet.population}</p>`
+
   
 }
 
-function planetdetails(p){
-    let additionalinfo = document.querySelector(".more-info")
-    additionalinfo.innerHTML= 
-    `<h3>${planetName.name}</h3>
-     <p>Rotation period: ${p.rotation_period}</p>
-     <p>Orbital period: ${p.orbital_period}</p>
-     <p>Diameter: ${p.diameter}</p>
-     <p>Climate: ${p.climate}</p>
-     <p>Gravity: ${p.gravity}</p>
-     <p>Terrain: ${p.terrain}</p>
-     <p>Surface water: ${p.surface_water}</p>
-     <p>Population: ${p.population}</p>`
+function getclick(p){
+
+    planetbtn.addEventListener( "click", function(){
+        
+        getplanet(p)
+        console.log("hallå")})
+
 }
 
 
@@ -85,15 +99,6 @@ function planetdetails(p){
 
 
 
-// function addInfoListener(){
-//     const planet = document.querySelector(".additional-info button:first-child")
-//     const species = document.querySelector(".additional-info button:nth-child(2)")
-//     const vehicles = document.querySelector(".additional-info button:nth-child(3)")
-//     const starships = document.querySelector(".additional-info button:nth-child(4)")
-//     planet.addEventListener("click", function (){show(focusp.homeworld)})
-//     species.addEventListener("click", function (){show(focusp.species)})
-//     vehicles.addEventListener("click", function (){show(focusp.vehicles)})
-//     starships.addEventListener("click", function (){show(focusp.starships)})
-// }
 
-// funcion 
+
+
