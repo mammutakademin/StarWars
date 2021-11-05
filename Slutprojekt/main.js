@@ -49,27 +49,16 @@ function peopledetails(p){
 
 // Fetch the planet
 async function getplanet(p){
-    const response = await fetch(p.homeworld)
-    .then(function(response) {   
-        return response.json();
-    })
-    .then(function(json) {
-        let p = json.results;
-        for(let homeplanets in planets) {
-            let listItem = document.createElement('li');
-            listItem.classList.add("planet-info")
-            listItem.innerText = p.name
-            additionalInfoDetails.appendChild(listItem);  
-            // listItem.addEventListener("click", function(){planetdetails(p)})
-            //VI BEHÖVER LISTA UT HUR MAN KALLAR PÅ JSON FÖR ATT SKRIVA UT DET
-        }
-    });
+    const response1 = await fetch(p.homeworld)
+    const homeplanet = await response1.json()
+    console.log(homeplanet)
+  
 }
 
 function planetdetails(p){
     let additionalinfo = document.querySelector(".more-info")
     additionalinfo.innerHTML= 
-    `<h3>${p.name}</h3>
+    `<h3>${planetName.name}</h3>
      <p>Rotation period: ${p.rotation_period}</p>
      <p>Orbital period: ${p.orbital_period}</p>
      <p>Diameter: ${p.diameter}</p>
