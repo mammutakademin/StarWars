@@ -132,7 +132,7 @@ ul{
     font-weight: 200; 
     padding: 20px 25px;
     background-color:#C4C4C4;
-    padding-bottom: 130px;
+    padding-bottom: 10px;
 }
 
 .info-details h3{
@@ -168,14 +168,46 @@ ul{
     100% { transform: rotate(360deg); }
   }
 
-  nav button{
+  button{
       width: 110px;
       height: 45px;
       color: #FFD600;
       background-color: grey;
       border: none;
       border-radius: 10px 10px 0 0 ;
-      transform: translateY(-45px);
       margin-left: 10px;
-      
   }
+
+  .more-info{
+    color: white;
+    font-weight: 200; 
+    padding: 20px 25px;
+    background-color:grey;
+  }
+  
+  .more-info h3{
+    font-size: 40px;
+    letter-spacing: 4px;
+    padding-bottom: 4px;
+}
+
+.more-info p{
+    font-size: 20px;
+    letter-spacing: 3px;
+    padding: 4px 0;
+}
+nav{
+background-color: #C4C4C4;
+}
+.nextpage, .previouspage{
+
+    color: black;
+    background-color: transparent;
+    width: 110px;
+    height: 45px;
+    border: none;
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
