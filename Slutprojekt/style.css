@@ -148,27 +148,29 @@ ul{
 }
 
 .info-planet{
-    /* background-color:#C4C4C4; */
     height: 40%;
 }
 
 .loader {
-    border-top: 10px solid #535556;
-    border-right: 10px solid #000;
-    border-bottom: 10px solid #535556;
+    border-top: 10px solid #f3f3f3;
+    border-right: 10px solid rgb(88, 255, 116);
+    border-bottom: 10px solid #f3f3f3;
     border-left: 10px solid #f3f3f3;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 0.5s linear infinite;
-  }
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+    margin-top: 70px;
+    margin-left: 180px;
+    margin-bottom: 90px;
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
+}
 
-  button{
+button{
       width: 110px;
       height: 45px;
       color: #FFD600;
@@ -176,16 +178,32 @@ ul{
       border: none;
       border-radius: 10px 10px 0 0 ;
       margin-left: 10px;
-  }
+}
 
-  .more-info{
+.character-names:hover{
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 100; 
+    background-color: #535556;
+}
+
+.character-names::selection{
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 100; 
+    background-color: #535556;
+}
+
+.more-info{
     color: white;
     font-weight: 200; 
     padding: 20px 25px;
     background-color:grey;
-  }
+}
   
-  .more-info h3{
+.more-info h3{
     font-size: 40px;
     letter-spacing: 4px;
     padding-bottom: 4px;
@@ -196,11 +214,12 @@ ul{
     letter-spacing: 3px;
     padding: 4px 0;
 }
+
 nav{
 background-color: #C4C4C4;
 }
-.nextpage, .previouspage{
 
+.nextpage, .previouspage{
     color: black;
     background-color: transparent;
     width: 110px;
@@ -210,4 +229,6 @@ background-color: #C4C4C4;
     display: flex;
     flex-direction: row;
     align-content: center;
+    margin-left: 50px;
+    padding: 0;
 }

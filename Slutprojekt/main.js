@@ -1,17 +1,15 @@
+// ---- GLOBAL ----
 let pageBack = document.querySelector(".previouspage")
 let pageForward = document.querySelector(".nextpage")
 let starWarsCharacterList = document.querySelector("ul");
-const additionalInfoDetails = document.querySelector(".additional-info-details");
-const pagePanel = document.querySelector(".page-panel");
-
-let currentPage = 1;
-const totalPages = 8;
-
+let starWarsCharacterDetails = document.querySelector(".info-details");
+let additionalinfo = document.querySelector(".more-info")
 let api_url = "https://swapi.dev/api/people";
 let previous;
+let currentPage = 1;
 
-// const api_url = "https://swapi.dev/api/people/?page=1";
-const additionalinfo = document.querySelector(".more-info")
+const totalPages = 8;
+const pagePanel = document.querySelector(".page-panel");
 const planetList = document.querySelector(".more-info");
 const planetbtn = document.querySelector(".planet-btn")
 const speciesbtn = document.querySelector(".species-btn")
@@ -19,19 +17,24 @@ const vehiclesbtn = document.querySelector(".vehicles-btn")
 const starshipsbtn = document.querySelector(".starship-btn")
 
 
-//Gets the characters
+//---- MAIN FUNCTION THAT GETS THE CHARACTERS AND API ----
 getapi(api_url);
 
 async function getapi(url){
-    const response = await fetch(url) 
+    showloader();
+    const response = await fetch(url)
+    
     .then(function(response) {   
         return response.json();
-        hideloader();
+        
+       
     })
     .then(function(json) {
+        hideloader()
         let people = json.results;
         api_url = json.next;
         previous = json.previous;
+        
         for(const p of people) {
             let listItem = document.createElement('li');
             listItem.classList.add("character-names")
@@ -40,18 +43,24 @@ async function getapi(url){
             listItem.addEventListener("click", function(){
                 peopledetails(p)
                 getplanet(p)
-                // getclick(p)
-                
             })           
         }
     });   
 }
-// async function fetchCharacters(currentpage) {
-//     const request = await fetch(`https://swapi.dev/api/people/?page=${currentpage}`);
-//     const data = await request.json();
-//     return data.results;
-//   }
+//---- LOADER FUNCTION ----
+function showloader(){
+   starWarsCharacterList.innerHTML = `<div class="loader"></div>`
+   starWarsCharacterDetails.innerHTML = `<div class="loader"></div>`
+   additionalinfo.innerHTML = `<div class="loader"></div>`
+}
   
+function hideloader(){
+    starWarsCharacterList.innerHTML = ``
+    
+   
+ }
+
+// ---- CURRENT PAGE + PAGE COUNTER (1/9) ----
 pageForward.addEventListener("click", () => {
     if(api_url != null){
         removeAllChildNodes(starWarsCharacterList)
@@ -78,21 +87,20 @@ function removeAllChildNodes(parent){
     }
 }
 
-//Puts details out in the "details list"
+//---- PUTTING THE DETAILS INTO THE CHARACTERDETAILS LIST ----
 function peopledetails(p){
-        let infodetails = document.querySelector(".info-details")
-        infodetails.innerHTML= 
-        `<h3>${p.name}</h3>
-         <p>Height: ${p.height}cm</p>
-         <p>Mass: ${p.mass}kg</p>
-         <p>Hair color: ${p.hair_color}</p>
-         <p>Skin color: ${p.skin_color}</p>
-         <p>Eye color: ${p.eye_color}</p>
-         <p>Birth year: ${p.birth_year}</p>
-         <p>Gender: ${p.gender}</p>`
+    starWarsCharacterDetails.innerHTML= 
+    `<h3>${p.name}</h3>
+    <p>Height: ${p.height}cm</p>
+    <p>Mass: ${p.mass}kg</p>
+    <p>Hair color: ${p.hair_color}</p>
+    <p>Skin color: ${p.skin_color}</p>
+    <p>Eye color: ${p.eye_color}</p>
+    <p>Birth year: ${p.birth_year}</p>
+    <p>Gender: ${p.gender}</p>`
 }
 
-// Fetch the planet
+// ---- FETCHING THE PLANET DETAILS ----
 async function getplanet(p){
     const response1 = await fetch(p.homeworld)
     const homeplanet = await response1.json()
@@ -106,11 +114,10 @@ async function getplanet(p){
      <p>Diameter: ${homeplanet.diameter}</p>
      <p>Climate: ${homeplanet.climate}</p>
      <p>Gravity: ${homeplanet.gravity}</p>
-     <p>Terrain: ${homeplanet.terrain}</p>
-     <p>Surface water: ${homeplanet.surface_water}</p>
-     <p>Population: ${homeplanet.population}</p>`  
+     <p>Terrain: ${homeplanet.terrain}</p>`  
 }
 
+//---- STARTADE PÅ VG-UPPGIFT ----
 //BEHÖVER FIXA SÅ HUMANS VISAS + ALLA STARSHIPS
 
 // function getclick(p){
