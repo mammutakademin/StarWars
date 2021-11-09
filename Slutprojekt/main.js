@@ -1,26 +1,22 @@
 let pageBack = document.querySelector(".previouspage")
 let pageForward = document.querySelector(".nextpage")
-const starWarsCharacterList = document.querySelector("ul");
+let starWarsCharacterList = document.querySelector("ul");
 const additionalInfoDetails = document.querySelector(".additional-info-details");
 const pagePanel = document.querySelector(".page-panel");
 
 let currentPage = 1;
 const totalPages = 8;
-const api_url = "https://swapi.dev/api/people/?page=1";
 
+let api_url = "https://swapi.dev/api/people";
+let previous;
+
+// const api_url = "https://swapi.dev/api/people/?page=1";
 const additionalinfo = document.querySelector(".more-info")
 const planetList = document.querySelector(".more-info");
 const planetbtn = document.querySelector(".planet-btn")
 const speciesbtn = document.querySelector(".species-btn")
 const vehiclesbtn = document.querySelector(".vehicles-btn")
 const starshipsbtn = document.querySelector(".starship-btn")
-
-
-// function initialPage(){
-//     getapi(api_url);
-//     // showPageInfo()
-
-// }
 
 
 //Gets the characters
@@ -34,6 +30,8 @@ async function getapi(url){
     })
     .then(function(json) {
         let people = json.results;
+        api_url = json.next;
+        previous = json.previous;
         for(const p of people) {
             let listItem = document.createElement('li');
             listItem.classList.add("character-names")
@@ -48,34 +46,36 @@ async function getapi(url){
         }
     });   
 }
-async function fetchCharacters(currentpage) {
-    const request = await fetch(`https://swapi.dev/api/people/?page=${currentpage}`);
-    const data = await request.json();
-    return data.results;
-  }
+// async function fetchCharacters(currentpage) {
+//     const request = await fetch(`https://swapi.dev/api/people/?page=${currentpage}`);
+//     const data = await request.json();
+//     return data.results;
+//   }
   
 pageForward.addEventListener("click", () => {
-    if(currentPage !== 8){
-        loadNextPage();
+    if(api_url != null){
+        removeAllChildNodes(starWarsCharacterList)
+        getapi(api_url);
+        currentPage++;
+        let pageNumber = `${currentPage} / 9`;
+        pagePanel.innerHTML = pageNumber;
     }
 })
 
 pageBack.addEventListener("click", () => {
-    if(currentPage !== 1){
-        loadPreviousPage();
+    if(previous != null){
+        removeAllChildNodes(starWarsCharacterList)
+        getapi(previous);
+        currentPage--;
+        let pageNumber = `${currentPage} / 9`;
+        pagePanel.innerHTML = pageNumber;
     }
 })
 
-async function loadNextPage(page){
-   currentPage++;
-   let pageNumber = `${currentPage} / 8`;
-   pagePanel.innerHTML = pageNumber;
-}
-
-async function loadPreviousPage(page){
-   currentPage--;
-   let pageNumber = `${currentPage} / 8`;
-   pagePanel.innerHTML = pageNumber;
+function removeAllChildNodes(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild);
+    }
 }
 
 //Puts details out in the "details list"
