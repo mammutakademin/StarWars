@@ -19,6 +19,7 @@ const starshipsbtn = document.querySelector(".starship-btn")
 
 //---- MAIN FUNCTION THAT GETS THE CHARACTERS AND API ----
 getapi(api_url);
+updatePage(currentPage);
 
 async function getapi(url){
     showloader();
@@ -61,13 +62,17 @@ function hideloader(){
  }
 
 // ---- CURRENT PAGE + PAGE COUNTER (1/9) ----
+function updatePage(currentPage){
+    let pageNumber = `${currentPage} / 9`;
+    pagePanel.innerHTML = pageNumber;
+}
+
 pageForward.addEventListener("click", () => {
     if(api_url != null){
         removeAllChildNodes(starWarsCharacterList)
         getapi(api_url);
         currentPage++;
-        let pageNumber = `${currentPage} / 9`;
-        pagePanel.innerHTML = pageNumber;
+        updatePage(currentPage);
     }
 })
 
@@ -76,8 +81,7 @@ pageBack.addEventListener("click", () => {
         removeAllChildNodes(starWarsCharacterList)
         getapi(previous);
         currentPage--;
-        let pageNumber = `${currentPage} / 9`;
-        pagePanel.innerHTML = pageNumber;
+        updatePage(currentPage);
     }
 })
 
